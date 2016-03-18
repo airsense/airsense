@@ -100,7 +100,6 @@ google.maps.event.addDomListener(window, 'load', initMap);
 function changeToDistrict() {
   overlay.hide();
   layer.setMap(map);
-  console.log("work?");
 }
 
 function changeToHeatmap() {
