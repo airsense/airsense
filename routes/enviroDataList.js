@@ -25,7 +25,7 @@ EnviroDataList.prototype = {
             }
             console.log("size: "+Object.keys(items).length);
             res.render('index', {
-                title: 'Air Quality and Environmental Data Set',
+                title: 'Airsense Dashboard',
                 dataset: items
             });
         });

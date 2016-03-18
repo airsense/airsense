@@ -37,8 +37,7 @@ enviroData.init();
 app.get('/', enviroDataList.showData.bind(enviroDataList));
 app.get('/newdataget', enviroDataList.addData.bind(enviroDataList));
 app.post('/newdatapost', enviroDataList.addData.bind(enviroDataList));
-app.post('/deletedata', enviroDataList.deleteData.bind(EnviroDataList));
-app.set('view engine', 'jade');
+app.post('/deletedata', enviroDataList.deleteData.bind(enviroDataList));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

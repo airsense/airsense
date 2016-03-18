@@ -1,9 +1,24 @@
 extends layout
-
 block content
-  h1 #{title}
+  //- h2 Map
   br
-
+  div.container
+    div.row.clearfix
+      div.col-md-12.column
+        .list-group.list-group-horizontal
+          a.list-group-item.active(id="heatmap_button", href='#', onclick="click_heatmap()") Heatmap View
+          a.list-group-item(id="district_button", href='#', onclick="click_district()") District View
+  div.container
+    div.row.clearfix
+      div.col-md-12.column
+        div#map-panel.panel.panel-default
+          div.panel-heading
+            h3.panel-title
+              = "Toronto Air Quality Heatmap"
+            div.panel-body
+            div(id="map")
+            div.panel-footer
+  br
   form(action="/deletedata", method="post")
     table.table.table-striped.table-bordered
       tr
@@ -44,10 +59,9 @@ block content
               input(type="checkbox", name="#{data.id}", value="#{!data.deleted}", checked=data.deleted)
     button.btn(type="submit") Update dataset
   hr
-  //- form.well(action="/adddata", method="post")
-  //-   label Item Name:
-  //-   input(name="name", type="textbox")
-  //-   label Item Category:
-  //-   input(name="category", type="textbox")
-  //-   br
-  //-   button.btn(type="submit") Add item
+  
+  script(type="text/javascript", src="/javascripts/papaparse.min.js")
+  script(type="text/javascript", src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_A0so8ksE6PcZgD_cH66o-d_K_NUd_po&libraries=visualization")
+  script(type="text/javascript", src="/javascripts/gmaps.js")  
+  script(type="text/javascript", src="/javascripts/tools.js")
+//- callback=initMap
